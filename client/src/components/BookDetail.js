@@ -44,24 +44,22 @@ const StyleBookDetail = styled.div`
 
 const BookDetail = () => {
   const {
-    result: {
-      title, authors, categories, publishedDate, imageLinks
-    },
+    result: volumeInfo
   } = useContext(BookContext);
   return (
     <StyleBookDetail>
       <div className="card">
-        {title ? (
+        {volumeInfo.title ? (
           <>
-            <h1>{title || "Search for a Book to Begin"}</h1>
-            <img alt={title} src ={imageLinks} />
-            <h3>Author(s): {authors}</h3>
-            <h3>Genre: {categories}</h3>
-            <h3>Released: {publishedDate}</h3>
+            <h1>{volumeInfo.title || "Search for a Book to Begin"}</h1>
+            <img alt={volumeInfo.title} src={volumeInfo.imageLinks} />
+            <h3>Author(s): {volumeInfo.authors}</h3>
+            <h3>Genre: {volumeInfo.categories}</h3>
+            <h3>Released: {volumeInfo.publishedDate}</h3>
           </>
         ) : (
-          <h3>No Results to Display</h3>
-        )
+            <h3>No Results to Display</h3>
+          )
 
         }
         <Search />
