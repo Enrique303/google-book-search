@@ -41,7 +41,7 @@ const Search = () => {
         value = {search}
         name= "search"
         type="text"
-        placeholder = "Search for a Movie"
+        placeholder = "Search for a Book"
         id="search"
         onChange={handleInputChange}
         />

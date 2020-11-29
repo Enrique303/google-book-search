@@ -14,18 +14,18 @@ const Layout = styled.div`
 `;
 
 const BookContainer = () => {
-  const [result, setResult] = useState({});
+  const [items, setItems] = useState({});
   const [search, setsearch] = useState("");
 
   useEffect(() => {
-    searchBooks('Harry Potter');
+    searchBooks('The Name of the Wind');
   }, []);
 
-  const searchBooks = async (query) => {
+  const searchBooks = async (q) => {
     try {
-      const res = await API.search(query);
-      console.log("BookContainer -> res", res.data)
-      setResult(res.data);
+      const res = await API.search(q);
+      console.log("BookContainer -> res", res.data.items)
+      setItems(res.data.items);
     } catch (error) {
       console.log("there was an error processing your results")
     }
@@ -44,8 +44,8 @@ const BookContainer = () => {
 
   return(
     <BookContext.Provider value={{
+      items,
       search,
-      result,
       handleInputChange,
       handleFormSubmit,
     }}>

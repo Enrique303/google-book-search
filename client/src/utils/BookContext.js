@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BookContext = React.createContext({
-  result: {},
+  items: {},
   search: '',
   handleInputChange: () =>{},
   handleFormSubmit: () => {}
